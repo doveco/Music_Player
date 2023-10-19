@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MUSIC CHALLENGE</title>
+</head>
+
+<body>
+    <div>
+        <h1>MUSIC CHALLENGE</h1>
+        <button onclick="tocar()">Click to start the music</button>
+        <button onclick="parar()">Click to stop the music</button>
+        <button onclick="proximaMusica()">Next</button>
+
+        <audio id="musica" src="music.wav"></audio>
+    </div>
+
+    <div>   
+        <h2> MUSIC IMAGE </h2>
+
+        <img id="imagens" src="music.jpg">
+    </div>
+
+    <script>
+        var audio = document.getElementById("musica");
+        var musicas = [
+            "music.wav",
+            "music1.wav",
+            "music2.wav",
+            "music3.wav",
+            "music4.wav"
+        ];
+
+        var imagens = [
+            "music.jpg",
+            "music1.jpg",
+            "music2.jpg",
+            "music3.jpg",
+            "music4.jpg"
+        ];
+
+        var musicaAtual = 0;
+
+        audio.addEventListener("ended", function () {
+            proximaMusica();
+        });
+
+        function tocar() {
+            if (audio.paused || audio.currentTime === 0) {
+                audio.src = musicas[musicaAtual];
+                audio.play();
+                document.getElementById("imagens").src = imagens[musicaAtual];
+            }
+        }
+
+        function parar() {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        function proximaMusica() {
+            parar();
+            musicaAtual = (musicaAtual + 1) % musicas.length;
+            tocar();
+
+            if (musicaAtual === 0) {
+                musicaAtual = 0;
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

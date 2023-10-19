@@ -1,0 +1,54 @@
+button {
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("fundo.jpg");
+    background-size: 100% 100%;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		background-position: center bottom;
+		background-size: 90%;
+	}
+
+	100% {
+		background-position: center bottom;
+		background-size: 100%;
+	}
+}
+
